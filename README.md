@@ -1,5 +1,7 @@
 # Solution
 
+**The solution for the question is inside the Solution folder**
+
 **Part 1**<br>
 For Part 1, as we are reading .JSON file so I am using JavaScript to complete this task.<br>
 To run the code,<br>
