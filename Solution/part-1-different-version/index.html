@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>Calculate total Stock price </title>
+    <script>
+        let stocks = [ 
+        //We are using the array of stocks here instead of a separate JSON file as it is restricted to access any files unless you are on a server and using backend to access your files. We simply need to replace the updated array here everytime we add an object to it.
+            {
+                "ticker": "BABA",
+                "name": "Alibaba Group Holding Ltd - ADR",
+                "close": 140.2
+            },
+            {
+                "ticker": "PLTR",
+                "name": "Palantir Technologies Inc",
+                "close": 23.2
+            },
+            {
+                "ticker": "FB",
+                "name": "Facebook, Inc. Common Stock",
+                "close": 323.95
+            },
+            {
+                "ticker": "TSLA",
+                "name": "Tesla Inc",
+                "close": 781.54
+            },
+            {
+                "ticker": "WISH",
+                "name": "ContextLogic Inc",
+                "close": 4.87
+            }
+        ]
+
+        function Calculate() {
+            let input = document.getElementById('input').value; 
+            //In the input element code, you can see that it is assigned id as input. We are using it to fetch the value input in it.
+            let arr = input.split(','); //First we separate each object using the split function and convert it into array of objects input in this field. 
+
+            let total = 0;
+
+            for (let i = 0; i < arr.length; i++) { //We run a loop so that we can check each object in our array and make the required multiplication and update the value.
+                let name = arr[i].split(':')[0];
+                let val = arr[i].split(':')[1];
+
+                stocks.forEach((data) => { //We look for the ticker with our correspondent input to see if it exists and calculate our value based on it.
+                    if (data.ticker === name)
+                    {
+                        total = total + (data.close * val);
+                    }
+                });
+            }
+
+            alert(total);
+        }
+    </script>
+
+</head>
+
+<body style="text-align: center;">
+    <input type="text" id="input" />
+    <button onclick="Calculate()"> Submit </button>
+</body>
+
+</html>
